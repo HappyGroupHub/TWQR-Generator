@@ -38,13 +38,13 @@ export default function QRCodeDisplay({qrCodeUrl}: QRCodeDisplayProps) {
     return (
         <Card className="w-full">
             <CardHeader>
-                <CardTitle className="text-2xl text-gray-800">收款QR碼</CardTitle>
+                <CardTitle className="text-2xl text-gray-800"><h2>收款QR碼</h2></CardTitle>
             </CardHeader>
             <CardContent className="flex flex-col items-center space-y-4">
                 {qrCodeUrl ? (
                     <>
                         <div className="bg-white p-4 rounded-lg shadow-md">
-                            <img src={qrCodeUrl || "/twqr.png"} alt="TWQR收款碼" className="w-64 h-64"/>
+                            <img src={qrCodeUrl || "/twqr.png"} alt="產生的 TWQR 收款 QR Code" width={256} height={256} className="w-64 h-64"/>
                         </div>
                         <div className="flex gap-4">
                             <Button onClick={copyQRCode} variant="outline"
