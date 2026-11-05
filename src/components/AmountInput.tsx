@@ -38,8 +38,8 @@ export default function AmountInput({value, onChange, error}: AmountInputProps) 
     const showZeroHint = value === "0" || value === ""
 
     return (
-        <div>
-            <Label htmlFor="amount" className="text-sm font-medium text-gray-700">
+        <div className="space-y-1.5">
+            <Label htmlFor="amount" className="text-sm font-medium text-gray-700 block">
                 收款金額 (新台幣) *
             </Label>
             <Input
@@ -49,9 +49,9 @@ export default function AmountInput({value, onChange, error}: AmountInputProps) 
                 placeholder="輸入收款金額"
                 maxLength={9} // 2,000,000 is 9 chars with commas
             />
-            {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+            {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
             {showZeroHint && !error && (
-                <p className="text-green-600 text-sm mt-1">收款金額為 0 時，對方可自行輸入</p>
+                <p className="text-emerald-600 text-xs mt-1">收款金額為 0 時，對方可自行輸入</p>
             )}
         </div>
     )

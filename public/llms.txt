@@ -1,0 +1,27 @@
+# TWQR 收款碼產生器 (TWQR Generator)
+
+> 免費、開源的台灣共通 QR Code（TWQR / 台灣 Pay）銀行轉帳收款碼線上產生工具。選擇收款銀行代碼、輸入銀行帳號與選填金額／備註，即可在瀏覽器本地端即時產生 TWQR 轉帳收款 QR Code，所有輸入資料皆不會上傳至伺服器。
+
+## 工具介紹与規格
+
+- **網站網址**：https://twqr-generator.playfuni.net/
+- **原始碼儲存庫**：https://github.com/HappyGroupHub/twqr-generator
+- **收費方式**：完全免費（MIT License 開源專案），免註冊、免登入
+- **支援機構**：內建 280 家台灣金融機構代碼，包含本國銀行、外商銀行、純網路銀行（將來銀行、連線銀行、樂天銀行）、信用合作社、農會、漁會、中華郵政（700），以及電子支付機構（全盈支付、全支付、悠遊付、一卡通、愛金卡、橘子支付、街口支付、歐付寶、簡單付）
+- **QR Code 規格**：採用台灣財金公司共通支付標準 `TWQRP://BankTransfer/158/02/V1` 格式
+  - `D5`：收款銀行代碼（3 碼）
+  - `D6`：收款帳號（10 至 16 位數字，產生時自動於左側補 0 至 16 碼）
+  - `D10`：幣別代碼 `901`（新台幣 TWD）
+  - `D1`（選填）：收款金額（大於 0 時帶入，單位為分，單筆上限新台幣 2,000,000 元；設為 0 時不帶入，由付款人掃描後自行輸入）
+  - `D9`（選填）：轉帳備註（上限 19 字元，經 URL 編碼）
+- **客製化功能**：可選擇不加圖示、嵌入 TWQR 圖示，或上傳自訂 Logo 圖片嵌入於 QR Code 中央，並支援一鍵下載 PNG 或複製圖片到剪貼簿
+- **隱私與安全**：所有 QR Code 皆透過瀏覽器端 JavaScript（`qrcode` 與 HTML5 Canvas）即時運算產生，不傳送任何銀行帳號、金額、備註或圖片至遠端伺服器，亦不寫入 Cookie 或 localStorage
+
+## 主要頁面與區塊
+
+- [TWQR 收款碼產生器首頁](https://twqr-generator.playfuni.net/)：提供線上產生 TWQR 轉帳收款 QR Code 的互動工具、使用步驟、支援銀行代碼清單、隱私說明與常見問題。
+- [如何產生 TWQR 收款碼](https://twqr-generator.playfuni.net/#how-to-use)：四步驟操作教學（選擇銀行、輸入帳號、設定選填金額與備註、下載或複製收款碼）。
+- [支援的銀行與格式](https://twqr-generator.playfuni.net/#supported-banks)：280 家台灣金融機構與電子支付代碼完整清單與 TWQR 轉帳格式說明。
+- [隱私說明](https://twqr-generator.playfuni.net/#privacy)：純瀏覽器端處理機制與資料安全說明。
+- [常見問題 (FAQ)](https://twqr-generator.playfuni.net/#faq)：關於 TWQR 收款碼、費用、帳號隱私、金額與備註上限、支援銀行與手續費的常見問答。
+- [GitHub 原始碼](https://github.com/HappyGroupHub/twqr-generator)：MIT 授權開源專案原始碼。

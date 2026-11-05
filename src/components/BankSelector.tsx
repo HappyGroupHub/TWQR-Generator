@@ -124,8 +124,8 @@ export default function BankSelector({value, onChange, error}: BankSelectorProps
     const displayValue = selectedBank ? `${selectedBank.code} - ${selectedBank.name}` : searchTerm
 
     return (
-        <div className="relative">
-            <Label htmlFor="bankCode" className="text-sm font-medium text-gray-700">
+        <div className="relative space-y-1.5">
+            <Label htmlFor="bankCode" className="text-sm font-medium text-gray-700 block">
                 銀行代碼 *
             </Label>
             <div className="relative">
@@ -138,24 +138,25 @@ export default function BankSelector({value, onChange, error}: BankSelectorProps
                     placeholder="選擇銀行代碼/名稱"
                     className={`pr-10 ${selectedBank ? "text-blue-600 font-medium" : ""} ${isInvalid ? "text-red-500" : ""}`}
                 />
-                <Search className="absolute right-3 top-3 h-4 w-4 text-gray-400"/>
+                <Search className="absolute right-3 top-3 h-4 w-4 text-gray-400 pointer-events-none"/>
             </div>
 
-            {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+            {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
 
             {showDropdown && filteredBanks.length > 0 && (
                 <div
                     ref={dropdownRef}
-                    className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto"
+                    className="absolute z-20 w-full mt-1 bg-white border border-slate-200 rounded-lg shadow-lg max-h-60 overflow-auto py-1"
                 >
                     {filteredBanks.map(({code, name}) => (
                         <button
                             key={code}
-                            className="w-full px-4 py-2 text-left hover:bg-gray-100 focus:bg-gray-100 transition-colors"
+                            type="button"
+                            className="w-full px-3.5 py-2 text-sm text-left hover:bg-blue-50/70 focus:bg-blue-50/70 transition-colors"
                             onClick={() => handleBankSelect(code, name)}
                         >
-                            <span className="font-medium text-blue-600">{code}</span>
-                            <span className="text-gray-600"> - {name}</span>
+                            <span className="font-semibold text-blue-600 tabular-nums">{code}</span>
+                            <span className="text-gray-700"> - {name}</span>
                         </button>
                     ))}
                 </div>
