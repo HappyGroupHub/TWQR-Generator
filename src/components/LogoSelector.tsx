@@ -30,14 +30,14 @@ export default function LogoSelector({value, onChange, onCustomLogoUpload}: Logo
     }
 
     return (
-        <div>
-            <Label className="text-sm font-medium text-gray-700 mb-3 block">加入自訂 Logo</Label>
-            <div className="flex gap-2">
+        <div className="space-y-2">
+            <Label className="text-sm font-medium text-gray-700 block">加入自訂 Logo</Label>
+            <div className="grid grid-cols-3 gap-2">
                 <Button
                     type="button"
                     variant={value === "none" ? "default" : "outline"}
                     onClick={() => onChange("none")}
-                    className="flex-1"
+                    className="w-full px-2"
                 >
                     無
                 </Button>
@@ -45,7 +45,7 @@ export default function LogoSelector({value, onChange, onCustomLogoUpload}: Logo
                     type="button"
                     variant={value === "twqr" ? "default" : "outline"}
                     onClick={() => onChange("twqr")}
-                    className="flex-1"
+                    className="w-full px-2"
                 >
                     TWQR 圖示
                 </Button>
@@ -53,9 +53,9 @@ export default function LogoSelector({value, onChange, onCustomLogoUpload}: Logo
                     type="button"
                     variant={value === "custom" ? "default" : "outline"}
                     onClick={() => fileInputRef.current?.click()}
-                    className="flex-1"
+                    className="w-full px-2"
                 >
-                    <Upload className="w-4 h-4 mr-2"/>
+                    <Upload className="w-4 h-4 mr-1"/>
                     上傳檔案
                 </Button>
             </div>

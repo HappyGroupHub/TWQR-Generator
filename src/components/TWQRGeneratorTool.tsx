@@ -106,18 +106,18 @@ export default function TWQRGeneratorTool() {
     }
 
     return (
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <Card className="w-full">
-                <CardHeader>
-                    <CardTitle className="text-2xl text-gray-800"><h2>收款資訊設定</h2></CardTitle>
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch">
+            <Card className="w-full shadow-md border-slate-200/90">
+                <CardHeader className="pb-4 border-b border-slate-100">
+                    <CardTitle className="text-xl font-semibold text-gray-800"><h2>收款資訊設定</h2></CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-6">
+                <CardContent className="space-y-5 pt-5">
                     {/* Bank Code */}
                     <BankSelector value={bankCode} onChange={handleBankChange}/>
 
                     {/* Bank Account */}
-                    <div>
-                        <Label htmlFor="account" className="text-sm font-medium text-gray-700">
+                    <div className="space-y-1.5">
+                        <Label htmlFor="account" className="text-sm font-medium text-gray-700 block">
                             收款帳號 *
                         </Label>
                         <Input
@@ -127,15 +127,15 @@ export default function TWQRGeneratorTool() {
                             onBlur={handleAccountBlur}
                             placeholder="輸入或貼上您的收款銀行帳號"
                         />
-                        {errors.account && <p className="text-red-500 text-sm mt-1">{errors.account}</p>}
+                        {errors.account && <p className="text-red-500 text-xs mt-1">{errors.account}</p>}
                     </div>
 
                     {/* Amount */}
                     <AmountInput value={amount} onChange={handleAmountChange} error={errors.amount}/>
 
                     {/* Comment */}
-                    <div>
-                        <Label htmlFor="comment" className="text-sm font-medium text-gray-700">
+                    <div className="space-y-1.5">
+                        <Label htmlFor="comment" className="text-sm font-medium text-gray-700 block">
                             備註 (選填)
                         </Label>
                         <Input
@@ -146,9 +146,9 @@ export default function TWQRGeneratorTool() {
                             placeholder="輸入備註資訊"
                             maxLength={19}
                         />
-                        <div className="flex justify-between items-center mt-1">
-                            {errors.comment && <p className="text-red-500 text-sm">{errors.comment}</p>}
-                            <p className="text-gray-400 text-sm ml-auto">{comment.length}/19</p>
+                        <div className="flex justify-between items-center pt-0.5">
+                            {errors.comment && <p className="text-red-500 text-xs">{errors.comment}</p>}
+                            <p className="text-gray-400 text-xs ml-auto">{comment.length}/19</p>
                         </div>
                     </div>
 
